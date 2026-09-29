@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charan Sai Batthala | Software Engineer & AI/ML Developer</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#080C14',
+              surface: '#0E1626',
+              border: 'rgba(255, 255, 255, 0.08)',
+              navy: '#0F2042',
+              cyan: '#38BDF8',
+              emerald: '#10B981',
+              purple: '#818CF8'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    .glass-card {
+      background: rgba(14, 22, 38, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.25s ease;
+    }
+    .glass-card:hover {
+      border-color: rgba(56, 189, 248, 0.35);
+      box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px 0 rgba(56, 189, 248, 0.1);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #FFFFFF 20%, #94A3B8 60%, #38BDF8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .grid-bg {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    }
+    .svg-icon {
+      display: inline-block;
+      width: 1.15rem;
+      height: 1.15rem;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans selection:bg-brand-cyan/20 selection:text-brand-cyan overflow-x-hidden">
+
+  <!-- Ambient lighting backdrop -->
+  <div class="fixed inset-0 pointer-events-none z-0">
+    <div class="absolute -top-32 left-1/4 w-96 h-96 bg-brand-cyan/10 rounded-full blur-[140px]"></div>
+    <div class="absolute top-1/2 -right-32 w-96 h-96 bg-brand-purple/10 rounded-full blur-[150px]"></div>
+    <div class="absolute inset-0 grid-bg opacity-75"></div>
+  </div>
+
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-brand-dark/85 border-b border-brand-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#hero" class="flex items-center gap-2 group">
+        <span class="font-mono text-sm font-bold text-white tracking-tight">
+          <span class="text-brand-cyan">charan</span>.dev
+        </span>
+        <span class="text-[11px] font-mono text-slate-400 bg-brand-surface px-2 py-0.5 rounded border border-brand-border hidden sm:inline-block">Exeter, UK</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-xs uppercase tracking-wider font-mono text-slate-300">
+        <a href="#about" class="hover:text-brand-cyan transition-colors">About</a>
+        <a href="#education" class="hover:text-brand-cyan transition-colors">Education</a>
+        <a href="#projects" class="hover:text-brand-cyan transition-colors">Projects</a>
+        <a href="#experience" class="hover:text-brand-cyan transition-colors">Experience</a>
+        <a href="#skills" class="hover:text-brand-cyan transition-colors">Skills</a>
+        <a href="#contact" class="hover:text-brand-cyan transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="mailto:charanmeb@gmail.com?subject=UK%20Internship%20Inquiry%20-%20Charan%20Sai%20Batthala" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-brand-cyan text-brand-dark hover:bg-cyan-300 transition-all flex items-center gap-2 font-sans shadow-sm">
+          <!-- Inline Email Icon -->
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+          <span>Get in Touch</span>
+        </a>
+
+        <button id="menu-btn" class="md:hidden text-slate-300 hover:text-white p-1" aria-label="Toggle Navigation">
+          <!-- Mobile Menu SVG -->
+          <svg class="w-5 h-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-nav" class="hidden md:hidden bg-brand-surface/95 border-b border-brand-border px-6 py-4 space-y-3 font-mono text-xs">
+      <a href="#about" class="block text-slate-300 hover:text-brand-cyan" onclick="closeMenu()">// About</a>
+      <a href="#education" class="block text-slate-300 hover:text-brand-cyan" onclick="closeMenu()">// Education</a>
+      <a href="#projects" class="block text-slate-300 hover:text-brand-cyan" onclick="closeMenu()">// Projects</a>
+      <a href="#experience" class="block text-slate-300 hover:text-brand-cyan" onclick="closeMenu()">// Experience</a>
+      <a href="#skills" class="block text-slate-300 hover:text-brand-cyan" onclick="closeMenu()">// Skills</a>
+      <a href="#contact" class="block text-slate-300 hover:text-brand-cyan" onclick="closeMenu()">// Contact</a>
+    </div>
+  </header>
+
+  <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16">
+    <section id="hero" class="min-h-[80vh] flex flex-col justify-center py-12">
+      <div class="space-y-6 max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-emerald-950/60 border border-emerald-500/40 text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Available for UK Internships & Placements</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.1]">
+          Hi, I'm <br class="sm:hidden" /><span class="gradient-text">Charan Sai Batthala</span>
+        </h1>
+
+        <p class="font-mono text-base sm:text-lg text-brand-purple font-medium">
+          MSc Advanced Computer Science Candidate @ University of Exeter
+        </p>
+
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+          Specialising in High Performance Computing (HPC), Machine Learning, and scalable Python architectures. Experienced in building automated NL-to-SQL query systems, containerised LLM applications with LangChain and vector databases, and high-accuracy clinical predictive classifiers.
+        </p>
+
+        <!-- CTA Buttons with Inline SVGs -->
+        <div class="flex flex-wrap items-center gap-3 pt-2">
+          <a href="#projects" class="px-5 py-2.5 rounded-lg bg-brand-cyan hover:bg-cyan-300 text-brand-dark font-semibold text-xs sm:text-sm flex items-center gap-2 transition-all">
+            <span>View Projects</span>
+            <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </a>
+
+          <!-- GitHub CTA with verified Octocat SVG -->
+          <a href="https://github.com/CHARANSAI2003" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-lg bg-brand-surface hover:bg-slate-800 border border-brand-border font-medium text-xs sm:text-sm flex items-center gap-2 text-slate-100 hover:text-white transition-all shadow-sm">
+            <svg class="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+            <span>GitHub Profile</span>
+          </a>
+
+          <!-- LinkedIn CTA with verified Official In Logo SVG -->
+          <a href="https://www.linkedin.com/in/bathala-charansai-2003/" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-lg bg-brand-surface hover:bg-slate-800 border border-brand-border font-medium text-xs sm:text-sm flex items-center gap-2 text-sky-300 hover:text-sky-200 transition-all shadow-sm">
+            <svg class="w-4 h-4 fill-[#0A66C2]" viewBox="0 0 24 24">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+
+        <!-- Quick Meta Details -->
+        <div class="pt-6 border-t border-brand-border/80 flex flex-wrap gap-6 text-xs font-mono text-slate-400">
+          <div class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 fill-current text-brand-cyan" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+            </svg>
+            <span>Exeter, United Kingdom</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 fill-current text-emerald-400" viewBox="0 0 24 24">
+              <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.43-3.9-6.84-6.73l1.88-1.67c.24-.24.34-.59.27-.92-.37-1.12-.57-2.32-.57-3.57 0-.55-.45-1-1-1H4.62c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.86c0-.55-.45-1-1-1.01z"/>
+            </svg>
+            <span>+44 7700 900123</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 fill-current text-amber-400" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <span>Undergrad CGPA: 8.74 / 10.0</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="py-16 border-t border-brand-border/60">
+      <div class="mb-8">
+        <span class="font-mono text-xs uppercase tracking-widest text-brand-cyan">// Academic Background</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mt-1">Education</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- University of Exeter -->
+        <div class="glass-card rounded-2xl p-6 sm:p-7 relative overflow-hidden transition-all">
+          <div class="flex items-start justify-between mb-4">
+            <div class="w-10 h-10 rounded-xl bg-brand-navy border border-brand-cyan/30 flex items-center justify-center text-brand-cyan">
+              <!-- Graduation Cap SVG -->
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M12 3L1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+              </svg>
+            </div>
+            <span class="px-2.5 py-1 rounded text-[11px] font-mono bg-sky-950/80 border border-sky-500/40 text-sky-300">
+              Sept 2026 – Expected Sept 2027
+            </span>
+          </div>
+
+          <h3 class="text-lg font-bold text-white mb-0.5">University of Exeter</h3>
+          <p class="text-brand-cyan font-medium text-xs mb-3">Master of Science (MSc) in Advanced Computer Science</p>
+          <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+            Rigorous postgraduate studies centered on scalable computing architectures, high-performance algorithms, and computational intelligence.
+          </p>
+
+          <div class="space-y-2 pt-3 border-t border-brand-border text-xs">
+            <div class="font-mono text-slate-400 uppercase tracking-wider text-[11px]">Degree Modules:</div>
+            <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-cyan font-medium">High Performance Computing</span>
+              <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">Text Mining & NLP</span>
+              <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">Computer Vision</span>
+              <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">Learning from Data</span>
+              <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">Research Project (60 Credits)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RMK College -->
+        <div class="glass-card rounded-2xl p-6 sm:p-7 relative overflow-hidden transition-all">
+          <div class="flex items-start justify-between mb-4">
+            <div class="w-10 h-10 rounded-xl bg-brand-navy border border-brand-purple/30 flex items-center justify-center text-brand-purple">
+              <!-- Award SVG -->
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7zm-1 18v1a1 1 0 0 0 1 1h0a1 1 0 0 0 1-1v-1h-2z"/>
+              </svg>
+            </div>
+            <span class="px-2.5 py-1 rounded text-[11px] font-mono bg-purple-950/80 border border-purple-500/40 text-purple-300">
+              2020 – 2024
+            </span>
+          </div>
+
+          <h3 class="text-lg font-bold text-white mb-0.5">R.M.K Engineering College</h3>
+          <p class="text-brand-purple font-medium text-xs mb-3">Bachelor of Engineering (B.E.) in Computer Science & Engineering</p>
+          <div class="flex items-center gap-3 text-xs text-slate-400 mb-4">
+            <span>Anna University, India</span>
+            <span class="font-bold text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/30 font-mono">CGPA: 8.74 / 10.0</span>
+          </div>
+
+          <div class="space-y-2 pt-3 border-t border-brand-border text-xs">
+            <div class="font-mono text-slate-400 uppercase tracking-wider text-[11px]">Core Foundations:</div>
+            <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">Data Structures & Algorithms</span>
+              <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">Database Management</span>
+              <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">Operating Systems</span>
+              <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">Software Engineering</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-16 border-t border-brand-border/60">
+      <div class="mb-8">
+        <span class="font-mono text-xs uppercase tracking-widest text-brand-cyan">// Technical Implementations</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mt-1">Featured Projects</h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-1">Production architectures, LLM systems, and predictive modeling applications.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Project 1: LangChain Chatbot -->
+        <div class="glass-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-10 h-10 rounded-xl bg-brand-navy border border-brand-cyan/30 flex items-center justify-center text-brand-cyan">
+                <!-- Terminal/Bot SVG -->
+                <svg class="w-5 h-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 17l6-6-6-6m8 14h8" />
+                </svg>
+              </div>
+              <a href="https://github.com/CHARANSAI2003" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" title="View Source on GitHub">
+                <!-- External Link SVG -->
+                <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+
+            <h3 class="text-lg font-bold text-white mb-2">LangChain Chatbot with Vector Search</h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+              A full-stack containerised conversational agent incorporating Retrieval-Augmented Generation (RAG) over custom enterprise documents.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-slate-400 mb-5">
+              <li class="flex items-start gap-2">
+                <span class="text-brand-cyan">▹</span>
+                <span>Integrated FastAPI REST backend with a Weaviate vector database for low-latency semantic search and retrieval.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-cyan">▹</span>
+                <span>Engineered context-aware prompting with LLaMA 3 and containerised the multi-container stack using Docker Compose.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 font-mono text-[11px] pt-4 border-t border-brand-border">
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-cyan">LLaMA 3</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-cyan">FastAPI</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-cyan">Weaviate</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-cyan">Next.js</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-cyan">Docker</span>
+          </div>
+        </div>
+
+        <!-- Project 2: NL-to-SQL Engine -->
+        <div class="glass-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-10 h-10 rounded-xl bg-brand-navy border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                <!-- Database SVG -->
+                <svg class="w-5 h-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                </svg>
+              </div>
+              <a href="https://github.com/CHARANSAI2003" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" title="View Source on GitHub">
+                <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+
+            <h3 class="text-lg font-bold text-white mb-2">Natural Language to SQL Query Engine</h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+              An LLM-driven translation engine translating plain-English queries into validated, syntax-checked SQL statements.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-slate-400 mb-5">
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-400">▹</span>
+                <span>Incorporated Abstract Syntax Tree (AST) schema parsing to eliminate execution errors and prevent SQL injection vulnerabilities.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-400">▹</span>
+                <span>Implemented LLaMA 2 (13B) pipeline with deterministic MySQL schema reflection layers.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 font-mono text-[11px] pt-4 border-t border-brand-border">
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-emerald-300">Python</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-emerald-300">LLaMA 2 13B</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-emerald-300">LangChain</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-emerald-300">MySQL AST</span>
+          </div>
+        </div>
+
+        <!-- Project 3: Cryptography Toolkit -->
+        <div class="glass-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-10 h-10 rounded-xl bg-brand-navy border border-brand-purple/30 flex items-center justify-center text-brand-purple">
+                <!-- Shield/Lock SVG -->
+                <svg class="w-5 h-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <a href="https://github.com/CHARANSAI2003" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" title="View Source on GitHub">
+                <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+
+            <h3 class="text-lg font-bold text-white mb-2">Open-Source Encryption & Encoding Toolkit</h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+              A modular Python cryptographic package providing standard, unit-tested implementations of multiple cipher suites.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-slate-400 mb-5">
+              <li class="flex items-start gap-2">
+                <span class="text-brand-purple">▹</span>
+                <span>Implemented symmetric and asymmetric ciphers: AES, RSA-4096, ECC, Blowfish, and ChaCha20.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-purple">▹</span>
+                <span>Built cleanly wrapped API endpoints and comprehensive test suites for cryptographic integrity.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 font-mono text-[11px] pt-4 border-t border-brand-border">
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-purple">Python</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-purple">Cryptography</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-purple">AES / RSA / ECC</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-purple">Open Source</span>
+          </div>
+        </div>
+
+        <!-- Project 4: Clinical Classifier -->
+        <div class="glass-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-10 h-10 rounded-xl bg-brand-navy border border-rose-500/30 flex items-center justify-center text-rose-400">
+                <!-- Activity / Pulse SVG -->
+                <svg class="w-5 h-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <a href="https://github.com/CHARANSAI2003" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" title="View Source on GitHub">
+                <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+
+            <h3 class="text-lg font-bold text-white mb-2">Clinical Heart Disease Classifier</h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+              Diagnostic machine learning model trained on 13 clinical biomarkers for early cardiovascular risk prediction.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-slate-400 mb-5">
+              <li class="flex items-start gap-2">
+                <span class="text-rose-400">▹</span>
+                <span>Achieved 83.8% training accuracy and 80.3% out-of-sample testing accuracy using logistic regression.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-rose-400">▹</span>
+                <span>Implemented feature normalization, missing value imputation, and k-fold cross-validation pipelines.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 font-mono text-[11px] pt-4 border-t border-brand-border">
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-rose-300">Scikit-learn</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-rose-300">Pandas</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-rose-300">NumPy</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-rose-300">Classification</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="py-16 border-t border-brand-border/60">
+      <div class="mb-8">
+        <span class="font-mono text-xs uppercase tracking-widest text-brand-cyan">// Career Track</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mt-1">Professional Experience</h2>
+      </div>
+
+      <div class="relative pl-6 sm:pl-8 border-l-2 border-brand-border space-y-8 ml-2 sm:ml-4">
+        <!-- Experience 1 -->
+        <div class="relative">
+          <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-brand-cyan border-4 border-brand-dark"></div>
+          
+          <div class="glass-card rounded-2xl p-6 border border-brand-border">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+              <div>
+                <h3 class="text-base sm:text-lg font-bold text-white">Data Analyst / Scientist</h3>
+                <p class="text-xs sm:text-sm font-semibold text-brand-cyan">MyEdBuddy <span class="text-slate-400 font-normal">• Noida, India</span></p>
+              </div>
+              <span class="inline-block px-2.5 py-1 rounded text-xs font-mono bg-brand-surface border border-brand-border text-brand-cyan w-fit">
+                Aug 2025 – May 2026
+              </span>
+            </div>
+
+            <ul class="space-y-1.5 text-xs sm:text-sm text-slate-300 mt-3">
+              <li class="flex items-start gap-2">
+                <span class="text-brand-cyan">▹</span>
+                <span>Cleaned, aggregated, and modeled large-scale operational business datasets to track core performance KPIs and generate executive insights.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-cyan">▹</span>
+                <span>Engineered automated executive reporting dashboards, reducing turnaround time across cross-functional commercial teams.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-cyan">▹</span>
+                <span>Implemented Python and SQL data validation routines to eliminate discrepancies, sustaining 99%+ reporting data accuracy across production systems.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Experience 2 -->
+        <div class="relative">
+          <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-brand-purple border-4 border-brand-dark"></div>
+          
+          <div class="glass-card rounded-2xl p-6 border border-brand-border">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+              <div>
+                <h3 class="text-base sm:text-lg font-bold text-white">Data Analyst</h3>
+                <p class="text-xs sm:text-sm font-semibold text-brand-purple">Inrank Digital <span class="text-slate-400 font-normal">• India</span></p>
+              </div>
+              <span class="inline-block px-2.5 py-1 rounded text-xs font-mono bg-brand-surface border border-brand-border text-brand-purple w-fit">
+                Aug 2024 – Jul 2025
+              </span>
+            </div>
+
+            <ul class="space-y-1.5 text-xs sm:text-sm text-slate-300 mt-3">
+              <li class="flex items-start gap-2">
+                <span class="text-brand-purple">▹</span>
+                <span>Structured heterogeneous datasets across multiple client channels to deliver reliable recurring executive business performance reports.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-purple">▹</span>
+                <span>Formulated advanced analytical SQL queries to detect anomalies, reconcile data patterns, and ensure cross-platform data integrity.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-purple">▹</span>
+                <span>Standardised data extraction procedures and reporting templates, improving report delivery turnaround and auditability.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="py-16 border-t border-brand-border/60">
+      <div class="mb-8">
+        <span class="font-mono text-xs uppercase tracking-widest text-brand-cyan">// Technical Matrix</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mt-1">Skills & Certifications</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Programming & DBs -->
+        <div class="glass-card rounded-xl p-5 border border-brand-border">
+          <div class="flex items-center gap-2 mb-3">
+            <svg class="w-4 h-4 fill-none stroke-current stroke-2 text-brand-cyan" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+            <h4 class="text-sm font-bold text-white">Languages & DBs</h4>
+          </div>
+          <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">Python</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">SQL (MySQL, PG)</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">JavaScript</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">HTML5/CSS3</span>
+          </div>
+        </div>
+
+        <!-- AI & ML -->
+        <div class="glass-card rounded-xl p-5 border border-brand-border">
+          <div class="flex items-center gap-2 mb-3">
+            <svg class="w-4 h-4 fill-none stroke-current stroke-2 text-brand-purple" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+            </svg>
+            <h4 class="text-sm font-bold text-white">AI / ML & HPC</h4>
+          </div>
+          <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-cyan font-medium">High Perf Computing</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">Scikit-learn</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">LangChain</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">LLaMA 2 & 3</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">Pandas & NumPy</span>
+          </div>
+        </div>
+
+        <!-- Backend & Cloud -->
+        <div class="glass-card rounded-xl p-5 border border-brand-border">
+          <div class="flex items-center gap-2 mb-3">
+            <svg class="w-4 h-4 fill-none stroke-current stroke-2 text-emerald-400" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+            </svg>
+            <h4 class="text-sm font-bold text-white">Backend & Cloud</h4>
+          </div>
+          <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">FastAPI</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">Flask</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">Docker</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">Weaviate</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">AWS Foundations</span>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="glass-card rounded-xl p-5 border border-brand-border">
+          <div class="flex items-center gap-2 mb-3">
+            <svg class="w-4 h-4 fill-none stroke-current stroke-2 text-amber-400" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h4 class="text-sm font-bold text-white">Certifications & Awards</h4>
+          </div>
+          <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">AWS Architecture</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">Intro to Databases</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">Centific AI Hackathon</span>
+            <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-200">District Chess Gold</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-16 border-t border-brand-border/60">
+      <div class="max-w-2xl mx-auto text-center space-y-3 mb-10">
+        <span class="font-mono text-xs uppercase tracking-widest text-brand-cyan">// Direct Channels</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">Get in Touch</h2>
+        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+          Open to UK internship opportunities in Software Engineering, AI/ML, and Data Analytics. Reach out directly:
+        </p>
+      </div>
+
+      <!-- Clean 4-card direct grid with guaranteed inline SVGs -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+        <!-- Email -->
+        <a href="mailto:charanmeb@gmail.com?subject=UK%20Internship%20Opportunity%20-%20Charan%20Sai%20Batthala" class="p-5 rounded-xl glass-card flex flex-col items-center text-center group hover:border-brand-cyan transition-all hover:-translate-y-1">
+          <div class="w-11 h-11 rounded-xl bg-brand-navy border border-brand-cyan/30 flex items-center justify-center text-brand-cyan mb-2.5">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </div>
+          <span class="text-[11px] font-mono text-slate-400 uppercase">Email</span>
+          <span class="text-xs font-semibold text-slate-200 group-hover:text-brand-cyan transition-colors break-all">charanmeb@gmail.com</span>
+        </a>
+
+        <!-- Phone -->
+        <a href="tel:+447700900123" class="p-5 rounded-xl glass-card flex flex-col items-center text-center group hover:border-emerald-500/50 transition-all hover:-translate-y-1">
+          <div class="w-11 h-11 rounded-xl bg-brand-navy border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-2.5">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.43-3.9-6.84-6.73l1.88-1.67c.24-.24.34-.59.27-.92-.37-1.12-.57-2.32-.57-3.57 0-.55-.45-1-1-1H4.62c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.86c0-.55-.45-1-1-1.01z"/>
+            </svg>
+          </div>
+          <span class="text-[11px] font-mono text-slate-400 uppercase">UK Phone</span>
+          <span class="text-xs font-semibold text-slate-200 group-hover:text-emerald-400 transition-colors">+44 7700 900123</span>
+        </a>
+
+        <!-- LinkedIn (Official SVG) -->
+        <a href="https://www.linkedin.com/in/bathala-charansai-2003/" target="_blank" rel="noopener noreferrer" class="p-5 rounded-xl glass-card flex flex-col items-center text-center group hover:border-[#0A66C2] transition-all hover:-translate-y-1">
+          <div class="w-11 h-11 rounded-xl bg-brand-navy border border-[#0A66C2]/40 flex items-center justify-center text-[#0A66C2] mb-2.5 group-hover:bg-[#0A66C2]/10 transition-colors">
+            <svg class="w-5 h-5 fill-[#0A66C2]" viewBox="0 0 24 24">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>
+          </div>
+          <span class="text-[11px] font-mono text-slate-400 uppercase">LinkedIn</span>
+          <span class="text-xs font-semibold text-slate-200 group-hover:text-sky-300 transition-colors">bathala-charansai-2003</span>
+        </a>
+
+        <!-- GitHub (Official Octocat SVG) -->
+        <a href="https://github.com/CHARANSAI2003" target="_blank" rel="noopener noreferrer" class="p-5 rounded-xl glass-card flex flex-col items-center text-center group hover:border-slate-400 transition-all hover:-translate-y-1">
+          <div class="w-11 h-11 rounded-xl bg-brand-navy border border-slate-600 flex items-center justify-center text-white mb-2.5 group-hover:bg-slate-800 transition-colors">
+            <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+          </div>
+          <span class="text-[11px] font-mono text-slate-400 uppercase">GitHub</span>
+          <span class="text-xs font-semibold text-slate-200 group-hover:text-white transition-colors">CHARANSAI2003</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-brand-border bg-brand-surface/60 py-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-slate-400">
+      <div>© 2026 Charan Sai Batthala • University of Exeter</div>
+      <div class="flex items-center gap-5">
+        <a href="https://github.com/CHARANSAI2003" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cyan transition-colors flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/bathala-charansai-2003/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cyan transition-colors flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 fill-[#0A66C2]" viewBox="0 0 24 24">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+        <a href="mailto:charanmeb@gmail.com" class="hover:text-brand-cyan transition-colors">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    menuBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('hidden');
+    });
+
+    function closeMenu() {
+      mobileNav.classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
